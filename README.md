@@ -58,5 +58,5 @@ uid=1000(foo) gid=1000(foo)
 
 The url is in the form of:
 
-* `https://svn.code.sf.net/p/flightgear/fgaddon/branches/release-{version_obj.major}.{version_obj.minor}/Aircraft` or
+* `https://svn.code.sf.net/p/flightgear/fgaddon/branches/release-{major version}.{minor version}/Aircraft` or
 * `http://svn.code.sf.net/p/flightgear/fgaddon/trunk/Aircraft` if you want development/latest
