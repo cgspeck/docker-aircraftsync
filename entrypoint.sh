@@ -27,7 +27,7 @@ fi
 USER_NAME=$(grep ":x:${PUID}" /etc/passwd | cut -f0 -d':')
 
 DEST="/dist/Aircraft"
-CHECKOUT_CMD="exec su ${USER_NAME} -c \"/usr/bin/svn checkout $URL $DEST\""
+CHECKOUT_CMD="exec su ${USER_NAME} -c \"/usr/bin/svn checkout $URL /dist\""
 CLEANUP_CMD="exec su ${USER_NAME} -c \"/usr/bin/svn cleanup $DEST\""
 UPDATE_CMD="exec su ${USER_NAME} -c \"/usr/bin/svn up $DEST\""
 
@@ -49,7 +49,7 @@ if [[ $# -eq 1 ]]; then
 fi
 
 
-if [[ -d /dist/Aircraft ]]; then
+if [[ -d $DEST ]]; then
   if [ ! /usr/bin/svn info $DEST | grep "${URL}" ]; then
     echo "backing up existing Aircraft checkout."
     mv $DEST /dist/Aircraft.bak
