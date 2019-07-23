@@ -50,7 +50,8 @@ fi
 
 
 if [[ -d $DEST ]]; then
-  if [ ! /usr/bin/svn info $DEST | grep "${URL}" ]; then
+  current_repo=$(/usr/bin/svn info $DEST | grep "${URL}" | cut -d ' ' -f2)
+  if [ "${current_repo%Aircraft}" != "${URL}" ]; then
     echo "backing up existing Aircraft checkout."
     mv $DEST /dist/Aircraft.bak
     echo "Doing a fresh checkout"
